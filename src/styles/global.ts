@@ -9,17 +9,13 @@ export const GlobalStyle = createGlobalStyle`
 
 :root {
   --white: #FFFFFF;
+  --background-color: #0c0b13;
 
-  --gray-50: #e1e1e6;
-  --gray-300: #a8a8b3;
-  --gray-700:#323238;
-  --gray-800: #29292e;
-  --gray-850: #1f2729;
-  --gray-900: #121214;
+  --yellow-500: #ffd026;
 }
 
 body {
-  background-color: var(--gray-900);
+  background-color: var(--background-color);
   color: var(--white);
 }
 
@@ -36,14 +32,19 @@ body {
 }
 
 body, input, textarea, select, button {
-  font: 400 1rem "Poppins", sans-serif;
+  font: 400 1rem 'Exo 2', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Nova Flat', cursive;
 }
 
 button {
   cursor: pointer;
+  background-color: var(#ffd026);
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}`
+}`;
