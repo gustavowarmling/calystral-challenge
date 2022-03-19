@@ -1,6 +1,9 @@
 {
-  "name": "react-boilerplate",
-  "version": "0.0.0",
+  "name": "calystral-games",
+  "description": "A login page made as a technical challange for Calystral Games",
+  "private": true,
+  "author": "Gustavo Roberge Warmling <gustavowarmling@gmail.com> (@gustavowarmling)",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
