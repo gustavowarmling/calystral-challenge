@@ -3,6 +3,7 @@ import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-toastify';
 
 import { ContentCard } from '../../ui/ContentCard';
 import { FormInput } from '../../ui/FormInput';
@@ -30,6 +31,7 @@ export const SignIn = () => {
   });
 
   const handleSignIn: SubmitHandler<SignInFormData> = async values => {
+    toast.error('Incorrect e-mail or password!');
     console.log(values);
   };
 

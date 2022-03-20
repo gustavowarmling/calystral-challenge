@@ -15,10 +15,10 @@ import {
   InputsWrapper,
   TermsOfService,
 } from './styles';
-
 import emailIcon from '../../assets/icons/mail.svg';
 import lockIcon from '../../assets/icons/lock.svg';
 import userIcon from '../../assets/icons/user.svg';
+import { toast } from 'react-toastify';
 
 type SignUpFormData = {
   email: string;
@@ -44,6 +44,7 @@ export const SignUp = () => {
   });
 
   const handleSignUp: SubmitHandler<SignUpFormData> = async values => {
+    toast.warning('Registration is currently not possible! :(');
     console.log(values);
   };
 
