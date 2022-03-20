@@ -6,4 +6,5 @@ export const Page = styled.div`
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+  position: relative;
 `;

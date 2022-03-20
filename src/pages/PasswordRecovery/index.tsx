@@ -7,6 +7,7 @@ import { ContentCard } from '../../ui/ContentCard';
 import { FormContainer, AccountNavigation, InputsWrapper } from './styles';
 
 import emailIcon from '../../assets/icons/mail.svg';
+import { FaqButton } from '../../ui/FaqButton';
 
 export const PasswordRecovery = () => {
   return (
@@ -30,6 +31,8 @@ export const PasswordRecovery = () => {
       <AccountNavigation>
         <a href="/">Already have an account? SignIn</a>
       </AccountNavigation>
+
+      <FaqButton />
     </ContentCard>
   );
 };

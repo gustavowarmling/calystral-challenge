@@ -14,6 +14,7 @@ import {
 import emailIcon from '../../assets/icons/mail.svg';
 import lockIcon from '../../assets/icons/lock.svg';
 import userIcon from '../../assets/icons/user.svg';
+import { FaqButton } from '../../ui/FaqButton';
 
 export const SignUp = () => {
   return (
@@ -71,6 +72,8 @@ export const SignUp = () => {
           Don't remember your password? Recover my Password
         </a>
       </AccountNavigation>
+
+      <FaqButton />
     </ContentCard>
   );
 };

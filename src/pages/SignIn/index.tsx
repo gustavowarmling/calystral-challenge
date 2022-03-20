@@ -8,6 +8,7 @@ import { FormContainer, AccountNavigation, InputsWrapper } from './styles';
 
 import emailIcon from '../../assets/icons/mail.svg';
 import lockIcon from '../../assets/icons/lock.svg';
+import { FaqButton } from '../../ui/FaqButton';
 
 export const SignIn = () => {
   return (
@@ -42,6 +43,8 @@ export const SignIn = () => {
           Don't remember your password? Recover my Password
         </a>
       </AccountNavigation>
+
+      <FaqButton />
     </ContentCard>
   );
 };
