@@ -5,6 +5,7 @@ import { Header } from './ui/Header';
 import { PagesWrapper } from './ui/PagesWrapper';
 
 import { SignIn } from './pages/SignIn';
+import { PasswordRecovery } from './pages/PasswordRecovery';
 
 const Routes = () => {
   return (
@@ -13,6 +14,7 @@ const Routes = () => {
 
       <BrowserRouter>
         <Route component={SignIn} exact path="/" />
+        <Route component={PasswordRecovery} exact path="/password-recovery" />
       </BrowserRouter>
     </PagesWrapper>
   );

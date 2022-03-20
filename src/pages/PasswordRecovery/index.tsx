@@ -12,13 +12,12 @@ import {
 } from './styles';
 
 import emailIcon from '../../assets/icons/mail.svg';
-import lockIcon from '../../assets/icons/lock.svg';
 
-export const SignIn = () => {
+export const PasswordRecovery = () => {
   return (
     <PageContainer>
       <Content>
-        <h1>Login</h1>
+        <h1>Password Recovery</h1>
 
         <FormContainer>
           <InputsWrapper>
@@ -29,24 +28,13 @@ export const SignIn = () => {
               iconAlt="Letter Icon"
               placeholder="E-Mail Address"
             />
-
-            <FormInput
-              type="password"
-              name="password"
-              icon={lockIcon}
-              iconAlt="Lock Icon"
-              placeholder="Password"
-            />
           </InputsWrapper>
 
-          <SubmitButton text="Login" />
+          <SubmitButton text="Send recovery email" />
         </FormContainer>
 
         <AccountNavigation>
-          <a href="#">Don't have an account yet? Signup</a>
-          <a href="/password-recovery">
-            Don't remember your password? Recover my Password
-          </a>
+          <a href="/">Already have an account? SignIn</a>
         </AccountNavigation>
       </Content>
     </PageContainer>
