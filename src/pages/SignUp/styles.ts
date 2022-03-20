@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   width: 100%;
   max-width: 356px;
   display: flex;
@@ -31,4 +31,8 @@ export const TermsOfService = styled.section`
   align-items: center;
   gap: 8px;
   margin-top: 16px;
+
+  h6 {
+    color: var(--error);
+  }
 `;

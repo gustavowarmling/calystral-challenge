@@ -32,3 +32,7 @@ export const ShowPasswordButton = styled.button`
     width: 100%;
   }
 `;
+
+export const ErrorMessage = styled.span`
+  color: var(--error);
+`;

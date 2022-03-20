@@ -1,8 +1,13 @@
 import React from 'react';
 
+import { SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 import { FormInput } from '../../ui/FormInput';
 import { SubmitButton } from '../../ui/SubmitButton';
 import { ContentCard } from '../../ui/ContentCard';
+import { FaqButton } from '../../ui/FaqButton';
 
 import {
   FormContainer,
@@ -14,51 +19,87 @@ import {
 import emailIcon from '../../assets/icons/mail.svg';
 import lockIcon from '../../assets/icons/lock.svg';
 import userIcon from '../../assets/icons/user.svg';
-import { FaqButton } from '../../ui/FaqButton';
+
+type SignUpFormData = {
+  email: string;
+  password: string;
+};
+
+const signUpFormSchema = yup.object().shape({
+  username: yup.string().required('Username required'),
+  email: yup.string().required('E-Mail required').email('Invalid E-Mail'),
+  password: yup
+    .string()
+    .required('Password required')
+    .min(4, 'at least 4 characters'),
+  password_confirmation: yup
+    .string()
+    .oneOf([null, yup.ref('password')], 'Passwords must match'),
+  terms_of_service: yup.boolean().oneOf([true], 'Required'),
+});
 
 export const SignUp = () => {
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver<yup.AnyObjectSchema>(signUpFormSchema),
+  });
+
+  const handleSignUp: SubmitHandler<SignUpFormData> = async values => {
+    console.log(values);
+  };
+
   return (
     <ContentCard>
       <h1>Register</h1>
 
-      <FormContainer>
+      <FormContainer onSubmit={handleSubmit(handleSignUp as SubmitHandler<{}>)}>
         <InputsWrapper>
           <FormInput
             type="text"
-            name="username"
             icon={userIcon}
             iconAlt="User Icon"
             placeholder="Username"
+            error={formState.errors.username?.message}
+            {...register('username')}
           />
 
           <FormInput
             type="email"
-            name="email"
             icon={emailIcon}
             iconAlt="Letter Icon"
             placeholder="E-Mail Address"
+            error={formState.errors.email?.message}
+            {...register('email')}
           />
 
           <FormInput
             type="password"
-            name="password"
             icon={lockIcon}
             iconAlt="Lock Icon"
             placeholder="Password"
+            error={formState.errors.password?.message}
+            {...register('password')}
           />
 
           <FormInput
             type="password"
-            name="password repeat"
             icon={lockIcon}
             iconAlt="Lock Icon"
-            placeholder="Password repeat"
+            placeholder="Password confirmation"
+            error={formState.errors.password_confirmation?.message}
+            {...register('password_confirmation')}
           />
 
           <TermsOfService>
-            <input type="checkbox" id="terms-of-service" />
-            <label htmlFor="terms-of-service">
+            <input
+              type="checkbox"
+              id="terms_of_service"
+              {...register('terms_of_service')}
+            />
+            <label htmlFor="terms_of_service">
               I agree to the terms of service
+              {formState.errors.terms_of_service?.message && (
+                <h6>{formState.errors.terms_of_service?.message}</h6>
+              )}
             </label>
           </TermsOfService>
         </InputsWrapper>

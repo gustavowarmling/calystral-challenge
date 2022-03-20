@@ -8,4 +8,8 @@ export const PageContainer = styled.div`
   flex-direction: column;
   background: url(${backgroundImage}) no-repeat;
   background-position-x: right;
+
+  @media (max-width: 800px) {
+    padding: 0 1rem;
+  }
 `;
