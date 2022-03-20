@@ -7,7 +7,7 @@ interface FormInputProps extends HTMLAttributes<HTMLInputElement> {
   name: string;
   icon: string;
   iconAlt: string;
-  type: 'email' | 'password';
+  type: 'email' | 'password' | 'text';
 }
 
 export const FormInput = ({

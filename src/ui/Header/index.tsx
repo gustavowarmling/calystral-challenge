@@ -6,7 +6,9 @@ import horizontalLogo from '../../assets/images/logo-horizontal.png';
 export const Header = () => {
   return (
     <HeaderContainer>
-      <img src={horizontalLogo} alt="Synergy of Serra's logo" />
+      <a href="/">
+        <img src={horizontalLogo} alt="Synergy of Serra's logo" />
+      </a>
     </HeaderContainer>
   );
 };
