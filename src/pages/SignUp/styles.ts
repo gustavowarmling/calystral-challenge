@@ -45,3 +45,11 @@ export const InputsWrapper = styled.div`
   flex-direction: column;
   gap: 8px;
 `;
+
+export const TermsOfService = styled.section`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+`;

@@ -9,6 +9,7 @@ import {
   FormContainer,
   AccountNavigation,
   InputsWrapper,
+  TermsOfService,
 } from './styles';
 
 import emailIcon from '../../assets/icons/mail.svg';
@@ -55,12 +56,12 @@ export const SignUp = () => {
               placeholder="Password repeat"
             />
 
-            <section>
+            <TermsOfService>
               <input type="checkbox" id="terms-of-service" />
               <label htmlFor="terms-of-service">
                 I agree to the terms of service
               </label>
-            </section>
+            </TermsOfService>
           </InputsWrapper>
 
           <SubmitButton text="SignUp" />
