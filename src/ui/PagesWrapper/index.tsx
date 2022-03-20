@@ -7,5 +7,5 @@ type PagesWrapperProps = {
 };
 
 export const PagesWrapper = ({ children }: PagesWrapperProps) => {
-  return <PageContainer>{children}</PageContainer>;
+  return <PageContainer data-testid="pages-wrapper">{children}</PageContainer>;
 };

@@ -26,7 +26,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 
     return (
       <>
-        <InputContainer>
+        <InputContainer data-testid="test-form-input">
           <label htmlFor={name}>
             <img src={icon} alt={iconAlt} />
           </label>
@@ -40,7 +40,11 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
           />
 
           {type === 'password' && (
-            <ShowPasswordButton type="button" onClick={switchPasswordShow}>
+            <ShowPasswordButton
+              type="button"
+              onClick={switchPasswordShow}
+              data-testid="test-password-button"
+            >
               <img src={eyeIcon} alt="Eye Icon" />
             </ShowPasswordButton>
           )}

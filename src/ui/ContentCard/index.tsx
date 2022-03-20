@@ -7,5 +7,5 @@ type ContentCardProps = {
 };
 
 export const ContentCard = ({ children }: ContentCardProps) => {
-  return <Content>{children}</Content>;
+  return <Content data-testid="content-card">{children}</Content>;
 };

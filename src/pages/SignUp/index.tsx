@@ -54,7 +54,7 @@ export const SignUp = () => {
 
   return (
     <ContentCard>
-      <h1>Register</h1>
+      <h1 data-testid="test-register">Register</h1>
 
       <FormContainer onSubmit={handleSubmit(handleSignUp as SubmitHandler<{}>)}>
         <InputsWrapper>

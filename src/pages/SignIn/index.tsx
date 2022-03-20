@@ -61,7 +61,7 @@ export const SignIn = () => {
 
   return (
     <ContentCard>
-      <h1>Login</h1>
+      <h1 data-testid="test-login">Login</h1>
 
       <FormContainer onSubmit={handleSubmit(handleSignIn as SubmitHandler<{}>)}>
         <InputsWrapper>

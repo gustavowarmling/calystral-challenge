@@ -7,5 +7,5 @@ type PageContentProps = {
 };
 
 export const PageContent = ({ children }: PageContentProps) => {
-  return <Page>{children}</Page>;
+  return <Page data-testid="page-content">{children}</Page>;
 };
