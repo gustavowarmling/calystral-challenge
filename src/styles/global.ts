@@ -31,20 +31,27 @@ body {
   }
 }
 
-body, input, textarea, select, button {
+body, input, textarea, select {
   font: 400 1rem 'Exo 2', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, button {
   font-family: 'Nova Flat', cursive;
 }
 
 button {
   cursor: pointer;
-  background-color: var(#ffd026);
+  background-color: var(--yellow-500);
+  border: 0;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}`;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+`;

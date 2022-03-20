@@ -6,9 +6,9 @@ export const HeaderContainer = styled.header`
   justify-content: center;
   background: linear-gradient(
     180deg,
-    rgba(12, 11, 19, 0.8) 85%,
-    rgba(12, 11, 19, 0.05) 95%,
-    rgba(12, 11, 19, 0) 100%
+    rgba(12, 11, 19, 0.85) 85%,
+    rgba(12, 11, 19, 0.2) 95%,
+    rgba(12, 11, 19, 0.01) 100%
   );
 
   img {
