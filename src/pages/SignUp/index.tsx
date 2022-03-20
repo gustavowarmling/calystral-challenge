@@ -3,6 +3,10 @@ import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-toastify';
+
+import { useSelector } from 'react-redux';
+import { RootState } from '../../state/reducers';
 
 import { FormInput } from '../../ui/FormInput';
 import { SubmitButton } from '../../ui/SubmitButton';
@@ -18,7 +22,6 @@ import {
 import emailIcon from '../../assets/icons/mail.svg';
 import lockIcon from '../../assets/icons/lock.svg';
 import userIcon from '../../assets/icons/user.svg';
-import { toast } from 'react-toastify';
 
 type SignUpFormData = {
   email: string;
@@ -42,6 +45,7 @@ export const SignUp = () => {
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver<yup.AnyObjectSchema>(signUpFormSchema),
   });
+  const emailData = useSelector((state: RootState) => state.email);
 
   const handleSignUp: SubmitHandler<SignUpFormData> = async values => {
     toast.warning('Registration is currently not possible! :(');
@@ -68,6 +72,7 @@ export const SignUp = () => {
             icon={emailIcon}
             iconAlt="Letter Icon"
             placeholder="E-Mail Address"
+            defaultValue={emailData}
             error={formState.errors.email?.message}
             {...register('email')}
           />

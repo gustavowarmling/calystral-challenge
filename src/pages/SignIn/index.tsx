@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../state';
 
 import { ContentCard } from '../../ui/ContentCard';
 import { FormInput } from '../../ui/FormInput';
@@ -11,9 +15,9 @@ import { SubmitButton } from '../../ui/SubmitButton';
 import { FaqButton } from '../../ui/FaqButton';
 
 import { FormContainer, AccountNavigation, InputsWrapper } from './styles';
-
 import emailIcon from '../../assets/icons/mail.svg';
 import lockIcon from '../../assets/icons/lock.svg';
+import { RootState } from '../../state/reducers';
 
 type SignInFormData = {
   email: string;
@@ -26,14 +30,34 @@ const signInFormSchema = yup.object().shape({
 });
 
 export const SignIn = () => {
-  const { register, handleSubmit, formState } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm({
     resolver: yupResolver<yup.AnyObjectSchema>(signInFormSchema),
   });
+
+  const emailData = useSelector((state: RootState) => state.email);
+  const dispatch = useDispatch();
+  const { updateEmail } = bindActionCreators(actionCreators, dispatch);
+  const [watchEmail] = watch(['email']);
 
   const handleSignIn: SubmitHandler<SignInFormData> = async values => {
     toast.error('Incorrect e-mail or password!');
     console.log(values);
   };
+
+  useEffect(() => {
+    if (!watchEmail) {
+      updateEmail('');
+
+      return;
+    }
+
+    updateEmail(watchEmail);
+  }, [watchEmail]);
 
   return (
     <ContentCard>
@@ -46,7 +70,8 @@ export const SignIn = () => {
             icon={emailIcon}
             iconAlt="Letter Icon"
             placeholder="E-Mail Address"
-            error={formState.errors.email?.message}
+            error={errors.email?.message}
+            defaultValue={emailData}
             {...register('email')}
           />
 
@@ -55,7 +80,7 @@ export const SignIn = () => {
             icon={lockIcon}
             iconAlt="Lock Icon"
             placeholder="Password"
-            error={formState.errors.password?.message}
+            error={errors.password?.message}
             {...register('password')}
           />
         </InputsWrapper>
